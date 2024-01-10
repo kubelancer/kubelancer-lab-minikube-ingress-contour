@@ -1,0 +1,15 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: kubeapp-proxy
+  namespace: dev
+spec:
+  virtualhost:
+    fqdn: 
+       "localhost"
+  routes:
+    - conditions:
+      - prefix: /
+      services:
+        - name: kubeapp
+          port: 80
